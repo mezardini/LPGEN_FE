@@ -261,7 +261,7 @@ export default {
   },
   methods: {
     submitForm() {
-      const url = 'https://lpcontentai.onrender.com/api/generate-content/'; 
+      const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/generate-content/'; 
       fetch(url, {
         method: 'POST',
         headers: {
