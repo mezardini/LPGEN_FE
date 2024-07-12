@@ -379,7 +379,7 @@
                                 <div class="invalid-feedback">Please
                                     enter email.</div>
                                <input type="email" class="form-control" name='recipient' value="mezardini@gmail.com" id="scheduleEmailInput" hidden />
-                               <input type="email" class="form-control" name='redirect_url' value="https://www.goal.com/en-ng" id="scheduleEmailInput" hidden />
+                               <input type="email" class="form-control" name='redirect_url' value="https://lpcontentai.netlify.app/" id="scheduleEmailInput" hidden />
                             </div>
                             <div class="col-md-12">
                                 <label for="scheduleTextarea" class="form-label">Message</label>
