@@ -261,12 +261,12 @@ export default {
   },
   methods: {
     submitForm() {
-      const url = 'http://127.0.0.1:8000/api/generate-content/'; // Replace with your backend API endpoint
+      const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/generate-content/'; 
       fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Add any headers your backend requires
+          
         },
         body: JSON.stringify({
             details: this.formData.details,
