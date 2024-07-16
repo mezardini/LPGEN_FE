@@ -57,7 +57,7 @@
                        
                     </ul>
 
-                    <button @click="goToGenerate" class="btn btn-primary" >Generate Free Landing Page Content</button>
+                    <button @click="goToLogin" class="btn btn-primary" >Generate Free Landing Page Content</button>
                 </div>
             </div>
         </div>
@@ -507,6 +507,9 @@ export default {
   methods: {
     goToGenerate() {
       this.$router.push({ name: 'Generate' });
+    },
+    goToLogin() {
+      this.$router.push({ name: 'Login' });
     }
   }
 };
