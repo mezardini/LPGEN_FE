@@ -128,7 +128,7 @@ export default {
     .then(data => {
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
-      console.log('Login successful:', data);
+      // console.log('Login successful:', data);
       this.$router.push('/dashboard'); // Redirect to dashboard
     })
     .catch(error => {

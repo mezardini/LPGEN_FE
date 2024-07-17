@@ -48,9 +48,7 @@
             <!-- Sidebar scroll-->
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="" class="text-nowrap logo-img">
-                        <img src="https://qbbnzmzzuixtljvesjmt.supabase.co/storage/v1/object/public/rlhq/dist_assets_RLHQ_logo.svg" width="180" alt="" />
-                    </a>
+                    <h6>LPContentAI</h6>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <img src="https://qbbnzmzzuixtljvesjmt.supabase.co/storage/v1/object/public/rlhq/dist_assets_logos_Cross.svg"
                             alt="Menu icon" />
@@ -66,7 +64,7 @@
                        
                         <li class="sidebar-item" >
                             
-                            <button @click="goToGenerate" class="btn btn-primar" style="background-color: #3b5d50; color: white">Generate Content</button>
+                            <a href="generate" class="btn btn-primar" style="background-color: #3b5d50; color: white">Generate Content</a>
                         </li>
                         <li class="nav-small-cap">
                             
@@ -89,11 +87,9 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
-                                href="javascript:void(0)">
-                                <img src="https://qbbnzmzzuixtljvesjmt.supabase.co/storage/v1/object/public/rlhq/dist_assets_logos_Menu.svg"
-                                    alt="Menu icon" />
-                            </a>
+                            <button class="navbar-toggler offcanvas-nav-btn" type="button">
+                                <a href="generate" > <i class="fa fa-arrow-right"></i> </a>
+                            </button>
                         </li>
                        
                     </ul>

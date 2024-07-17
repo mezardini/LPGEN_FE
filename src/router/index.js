@@ -14,7 +14,8 @@ const routes = [
   {
     path: '/generate',
     name: 'Generate',
-    component: Generate
+    component: Generate,
+    meta: { requiresAuth: true },
   },
   {
     path: '/login',
@@ -29,13 +30,24 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard
+    component: Dashboard,
+    meta: { requiresAuth: true },
   }
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = !!localStorage.getItem('access_token'); // Check if the user is logged in
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+    next('/login'); // Redirect to login page if not authenticated
+  } else {
+    next(); // Proceed to the route
+  }
 });
 
 export default router;

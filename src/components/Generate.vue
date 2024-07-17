@@ -262,10 +262,12 @@ export default {
   methods: {
     submitForm() {
       const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/generate-content/'; 
+      const token = localStorage.getItem('access_token');
       fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, 
           
         },
         body: JSON.stringify({
