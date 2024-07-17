@@ -114,20 +114,18 @@
             </header>
             <!--  Header End -->
              <div class="container-fluid">
-                <div class="card">
+                <div v-if="loading">Loading...</div>
+                <div v-else>
+                <div v-if="error">{{ error }}</div>
+                <div v-else>
+                    <div class="card" v-for="idea in ideas" :key="idea.id">
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">{{ idea.details }}</h5>
+                        <p class="card-text">{{ idea.target_audience }}</p>
+                        <a href="#" class="btn btn-primary" @click="viewContent(idea)">View Content</a>
+                    </div>
                     </div>
                 </div>
-                <div class="card">
-                   
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
                 </div>
              </div>
             
@@ -140,25 +138,54 @@
   </div>
 </template>
 
+
 <script>
 export default {
-  name: 'Register-Page',
+    name: 'Dashboard-Page',
+  data() {
+    return {
+      ideas: [],
+      loading: true,
+      error: null,
+    };
+  },
   mounted() {
-    // Dynamically import the CSS file for this page
+    this.fetchData();
     import('@/assets/css/dashboardstyle.css');
     import('@/assets/css/styles.css');
-    
   },
   methods: {
-    goToLogin() {
-      this.$router.push({ name: 'Login' });
+    fetchData() {
+        const url = 'http://127.0.0.1:8000/api/dashboard/';
+        const token = localStorage.getItem('access_token');
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            this.ideas = data;
+            this.loading = false;
+        })
+        .catch(error => {
+            this.error = 'Failed to fetch data';
+            this.loading = false;
+            console.error('Error during fetch:', error);
+        });
     },
-    goToGenerate() {
-      this.$router.push({ name: 'Generate' });
-    }
-  }
+}
 };
 </script>
+
 
 <style scoped>
 /* Add your styles here */

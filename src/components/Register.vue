@@ -75,15 +75,15 @@
                 
                 <p class="text-center">Sign Up to LPContentAI</p>
                 
-                <form method="POST" action="">
+                <form @submit.prevent="submitForm">
                     
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" v-model="formData.email" name="email" aria-describedby="emailHelp" required>
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" v-model="formData.password" name="password">
                   </div>
                   
                   <button type="submit" class="btn btn-primary w-100  rounded-2">Sign Up</button>
@@ -109,9 +109,45 @@
 <script>
 export default {
   name: 'Register-Page',
+  data() {
+    return {
+      formData: {
+        email: '',
+        password: ''
+      },
+    }
+    },
   methods: {
     goToLogin() {
       this.$router.push({ name: 'Login' });
+    },
+    submitForm() {
+    const url = 'http://127.0.0.1:8000/api/registeruser/';
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.formData.email,
+        password: this.formData.password,
+      }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        else{
+          window.location.href = '/login';
+        }
+        return response.json();
+      })
+      
+      .catch(error => {
+        // Handle error
+        console.error('Error during form submission:', error);
+        // Optionally, show an error message to the user
+      });
     }
   }
 };
