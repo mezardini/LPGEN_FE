@@ -122,7 +122,7 @@ export default {
       this.$router.push({ name: 'Login' });
     },
     submitForm() {
-    const url = 'http://127.0.0.1:8000/api/registeruser/';
+    const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/registeruser/';
     fetch(url, {
       method: 'POST',
       headers: {

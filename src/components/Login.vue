@@ -108,7 +108,7 @@ export default {
       this.$router.push({ name: 'Login' });
     },
     submitForm() {
-    const url = 'http://127.0.0.1:8000/api/loginuser/'; 
+    const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/loginuser/'; 
     fetch(url, {
       method: 'POST',
       headers: {

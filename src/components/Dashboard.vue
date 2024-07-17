@@ -156,7 +156,7 @@ export default {
   },
   methods: {
     fetchData() {
-        const url = 'http://127.0.0.1:8000/api/dashboard/';
+        const url = 'https://partial-marti-redditleadhq-5cacd692.koyeb.app/api/dashboard/';
         const token = localStorage.getItem('access_token');
 
         fetch(url, {
