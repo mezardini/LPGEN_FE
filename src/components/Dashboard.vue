@@ -118,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ idea.details }}</h5>
                         <p class="card-text">{{ idea.target_audience }}</p>
-                        <a href="#" class="btn btn-primary" @click="viewContent(idea)">View Content</a>
+                        <a :href="`/content/${idea.id}`" class="btn btn-primary" >View Content</a>
                     </div>
                     </div>
                 </div>

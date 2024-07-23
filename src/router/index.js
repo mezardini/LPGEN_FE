@@ -4,6 +4,7 @@ import Generate from '../components/Generate.vue';
 import Login from '../components/Login.vue';
 import Register from '../components/Register.vue';
 import Dashboard from '../components/Dashboard.vue';
+import Content from '../components/Content.vue';
 
 const routes = [
   {
@@ -31,6 +32,12 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/content/:id',
+    name: 'Content',
+    component: Content,
     meta: { requiresAuth: true },
   }
 ];
